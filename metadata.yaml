@@ -1,7 +1,7 @@
 homepage: "https://www.gartner.com/en/digital-markets"
 documentation: "https://assets.ctfassets.net/oxxd3vmipgr7/2FfmTssCxRb9ZCwsZLMJaH/87ddbe3c9ebade0d5f6446bda32075c4/GDM__GTM_Documentation_Insights_Tag_Install_Guide.docx__2_.pdf"
 versions:
-  - sha: fa7bed114eb5cc63090e21a4338f24c1dd1bc480
-    changeNotes: Update template.tpl - Add category
   - sha: 255a349ecae7df52827cbf297854a62ccd881833
+    changeNotes: Update template.tpl - Add category
+  - sha: 973aabd1283398ff438599510ccc3dfb98e59093
     changeNotes: update name and description
