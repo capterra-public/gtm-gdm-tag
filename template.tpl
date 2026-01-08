@@ -11,7 +11,7 @@ ___INFO___
 {
   "type": "TAG",
   "id": "cvt_temp_public_id",
-  "version": 1,
+  "version": 2,
   "securityGroups": [],
   "displayName": "Gartner Digital Markets Tag",
   "categories": ["CONVERSIONS"],
@@ -79,20 +79,24 @@ function setConfig() {
   }, true);
 }
 
+function initDataLayer() {
+  setInWindow('gdmEvents', [], true);
+}
+
 function listenForConsentChanges () {
   addConsentListener("ad_storage", (consentType, granted) => {
     if (!granted) {
       callInWindow('ct.revokeConsent');
       return;
     }
-    
+
     callInWindow('ct.grantConsent');
   });
-
 }
 
 if(vendorId && vendorKey){
   setConfig();
+  initDataLayer();
   listenForConsentChanges();
   injectScript(url, data.gtmOnSuccess, data.gtmOnFailure);
 } else {
@@ -255,6 +259,45 @@ ___WEB_PERMISSIONS___
                   {
                     "type": 8,
                     "boolean": true
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "gdmEvents"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
                   }
                 ]
               }
